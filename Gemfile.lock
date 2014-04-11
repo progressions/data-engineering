@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    annotate (2.5.0)
+      rake
     arel (5.0.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
@@ -142,6 +144,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails (~> 4.0)
