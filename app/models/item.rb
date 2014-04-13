@@ -13,6 +13,9 @@
 #
 
 class Item < ActiveRecord::Base
+  belongs_to :purchaser
+  belongs_to :merchant
+
   def gross_revenue
     item_price.to_i * purchase_count.to_i
   end

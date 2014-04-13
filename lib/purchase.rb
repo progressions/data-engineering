@@ -6,8 +6,13 @@
 class Purchase
   attr_accessor :row
 
+  delegate :gross_revenue, to: :item
+  delegate :valid?, to: :item
+
   def initialize(row)
     self.row = row
+
+    item.save
   end
 
   def options
@@ -26,10 +31,32 @@ class Purchase
     @options
   end
 
+  def item
+    unless @item
+      @item = Item.new(
+        purchaser: purchaser,
+        merchant: merchant,
+        item_description: options[:item_description],
+        item_price: options[:item_price],
+        purchase_count: options[:purchase_count]
+      )
+    end
+    @item
+  end
+
   def purchaser
     unless @purchaser
-      Purchaser.where(name: options[:purchaser_name])
+      Purchaser.where(name: options[:purchaser_name]) ||
+        Purchaser.create(name: options[:purchaser_name])
     end
     @purchaser
+  end
+
+  def merchant
+    unless @merchant
+      Merchant.where(name: options[:merchant_name]) ||
+        Purchaser.create(name: options[:merchant_name], address: options[:merchant_address])
+    end
+    @merchant
   end
 end

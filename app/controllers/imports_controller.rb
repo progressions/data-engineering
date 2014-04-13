@@ -1,4 +1,5 @@
 require 'csv'
+require 'purchase'
 
 class ImportsController < ApplicationController
   def new
@@ -16,9 +17,9 @@ class ImportsController < ApplicationController
       headers = results.shift
 
       results.each do |row|
-        item = Item.from_tsv(row)
-        @items << item
-        @revenue += item.item_price.to_i
+        purchase = Purchase.new(row)
+        @items << purchase
+        @revenue += purchase.gross_revenue
       end
     end
 
