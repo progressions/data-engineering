@@ -24,5 +24,7 @@ class ImportsController < ApplicationController
     end
 
     @revenue /= 100.0
+
+    @import = Import.new(uploaded_file.read)
   end
 end
