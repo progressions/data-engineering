@@ -1,2 +1,7 @@
-%h1 Imports#create
-%p Find me in app/views/imports/create.html.haml
+%h1
+  Imported
+  = pluralize(@items.length, 'Item')
+
+%p
+  Total gross revenue is
+  = number_to_currency(@revenue)
