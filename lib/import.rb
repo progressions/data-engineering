@@ -19,4 +19,8 @@ class Import
 
     @gross_revenue /= 100.0
   end
+
+  def line_items_length
+    line_items.try(:length).to_i
+  end
 end
