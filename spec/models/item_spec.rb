@@ -2,14 +2,11 @@
 #
 # Table name: items
 #
-#  id               :integer          not null, primary key
-#  item_description :string(255)
-#  item_price       :integer
-#  purchase_count   :integer
-#  created_at       :datetime
-#  updated_at       :datetime
-#  purchaser_id     :integer
-#  merchant_id      :integer
+#  id          :integer          not null, primary key
+#  description :string(255)
+#  price       :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 require 'spec_helper'
