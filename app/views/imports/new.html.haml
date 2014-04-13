@@ -1,0 +1,8 @@
+%h1 Import Items
+
+= form_tag(imports_url, method: 'post', multipart: true) do
+  %p Upload a tab-separated text file containing items.
+
+  = file_field_tag :import
+
+  %p= submit_tag('Upload')

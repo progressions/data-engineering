@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livingsocial</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>LivingSocial Code Sample</h1>
+
+<p>
+  <%= link_to "Import Items", new_import_url %>
+</p>
+<%= yield %>
+
+</body>
+</html>

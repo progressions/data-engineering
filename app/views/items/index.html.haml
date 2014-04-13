@@ -1,0 +1,8 @@
+%h1 Items
+
+- if @items.any?
+  - @items.each do |item|
+    %p= item.item_description
+
+- else
+  %p No items to display.

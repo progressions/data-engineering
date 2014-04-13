@@ -1,0 +1,7 @@
+%h1
+  Imported
+  = pluralize(@import.line_items_length, 'Line Item')
+
+%p
+  Total gross revenue is
+  = number_to_currency(@import.gross_revenue)
