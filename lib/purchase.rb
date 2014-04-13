@@ -45,7 +45,8 @@ class Purchase
 
   def item
     unless @item
-      @item = Item.new(
+      @item = Item.where(description: options[:description], price: options[:price]).first ||
+        Item.new(
         description: options[:description],
         price: options[:price]
       )
@@ -55,7 +56,7 @@ class Purchase
 
   def purchaser
     unless @purchaser
-      @purchaser = Purchaser.where(name: options[:purchaser_name]) ||
+      @purchaser = Purchaser.where(name: options[:purchaser_name]).first ||
         Purchaser.create(name: options[:purchaser_name])
     end
     @purchaser
@@ -63,8 +64,8 @@ class Purchase
 
   def merchant
     unless @merchant
-      @merchant = Merchant.where(name: options[:merchant_name]) ||
-        Purchaser.create(name: options[:merchant_name], address: options[:merchant_address])
+      @merchant = Merchant.where(name: options[:merchant_name]).first ||
+        Merchant.create(name: options[:merchant_name], address: options[:merchant_address])
     end
     @merchant
   end
