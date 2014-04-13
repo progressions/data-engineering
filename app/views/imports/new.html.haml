@@ -1,2 +1,8 @@
-%h1 Imports#new
-%p Find me in app/views/imports/new.html.haml
+%h1 Import Items
+
+= form_tag(imports_url, method: 'post', multipart: true) do
+  %p Upload a tab-separated text file containing items.
+
+  = file_field_tag :import
+
+  %p= submit_tag('Upload')
